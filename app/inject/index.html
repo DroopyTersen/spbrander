@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>SPBrander</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <script>
+    window.$ = window.jQuery = require("jquery");
+    </script>
+    <style>
+    html,
+    body {
+        height: 100%;
+        position: relative;
+    }
+    
+    .right-panel {
+        background: #f7f7f7;
+        padding: 20px;
+        border-left: 1px solid #ccc;
+        height: 100%;
+    }
+    .right-panel .title {
+        margin-top: 0;
+    }
+    </style>
+</head>
+
+<body>
+    <div class='col-sm-7'>
+        <div class="col-sm-6">
+            <a class='navigation' href='../inject' data-view='index'>
+                <h3>Inject</h3>
+                <p>Temporarily add a local CSS or JS file to a SharePoint site</p>
+            </a>
+        </div>
+        <div class="col-sm-6">
+            <a class='navigation' href='../expose/' data-view='expose'>
+                <h3>Expose</h3>
+                <p>Temporarily make a local folder publicly accessible</p>
+            </a>
+        </div>
+        <div class="col-sm-6">
+            <a class='navigation' href='../inject' data-view='deploy'>
+                <h3>Deploy</h3>
+                <p>Upload a local CSS or JS file and include it on all pages of your SharePoint site</p>
+            </a>
+        </div>
+    </div>
+    <div class='col-sm-5 right-panel'>
+        <h3 class='title text-primary'>Inject a file</h3>
+        <hr>
+        <em class='info text-muted'>
+            Temporarily include a CSS or JavaScript file onto the targeted SharePoint site
+        </em>
+        <hr>
+        <form>
+            <div class="form-group">
+                <label for="file">File Path</label>
+                <input id='file' name='file' class="form-control" placeholder="C:\Users\Andrew\Branding\myStyles.css">
+            </div>
+            <div class="form-group">
+                <label for="url">SharePoint Site</label>
+                <input id='url' name='url' class="form-control" placeholder="https://andrewpetersen.sharepoint.com">
+            </div>
+            <div class="form-group">
+                <label for="user">User (email format)</label>
+                <input id='user' name='user' class="form-control" placeholder="jpetera2@jci.com, andrew@andrewpetersen.onmicrosoft.com">
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input id='password' class="form-control" type='password'>
+            </div>
+            <button type="submit" class="btn btn-primary btn-large disabled" id='start-btn'>Start</button>
+            <button type="button" id='stop-btn' class="btn btn-danger btn-large disabled">Stop</button>
+        </form>
+    </div>
+    <script>
+    require("./inject");
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>SPBrander</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <script>
+    window.$ = window.jQuery = require("jquery");
+    </script>
+    <style>
+    html,
+    body {
+        height: 100%;
+        position: relative;
+    }
+    
+    .right-panel {
+        background: #f7f7f7;
+        padding: 20px;
+        border-left: 1px solid #ccc;
+        height: 100%;
+    }
+    </style>
+</head>
+
+<body>
+    <div class='col-sm-7'>
+        <div class="col-sm-6">
+            <a class='navigation' href='../inject/index.html' data-view='index'>
+                <h3>Inject</h3>
+                <p>Temporarily add a local CSS or JS file to a SharePoint site</p>
+            </a>
+        </div>
+        <div class="col-sm-6">
+            <a class='navigation' href='../expose/index.html' data-view='expose'>
+                <h3>Expose</h3>
+                <p>Temporarily make a local folder publicly accessible</p>
+            </a>
+        </div>
+        <div class="col-sm-6">
+            <a class='navigation' href='../inject/index.html' data-view='deploy'>
+                <h3>Deploy</h3>
+                <p>Upload a local CSS or JS file and include it on all pages of your SharePoint site</p>
+            </a>
+        </div>
+    </div>
+    <div class='col-sm-5 right-panel'>
+        <h3>Expose a folder</h3>
+        <hr>
+        <p>
+            Make a local folder publicly accessible so that you can temporarily setup Content Editor webparts and JSLink templates to pull straight from your computer.
+        </p>
+        <hr>
+        <form>
+            <div class="form-group">
+                <label for="path">Folder Path</label>
+                <input id='path' name='path' class="form-control" placeholder="C:\Users\Andrew\Branding">
+            </div>
+            <button type="submit" class="btn btn-primary btn-large disabled" id='start-btn'>Start</button>
+            <button type="button" id='stop-btn' class="btn btn-danger btn-large disabled">Stop</button>
+        </form>
+    </div>
+    <script>
+    require("./expose");
+    </script>
+</body>
+
+</html>
