@@ -1,7 +1,3 @@
-body {
-	background: #33f;
-}
-
 .console {
     background: #101010;
     min-height: 200px;
@@ -9,4 +5,73 @@ body {
     color: #ffef70;
     font-size: 1.3em;
     padding: 5px 10px;
+}
+
+.workspace-tabs {
+	padding-top:30px;
+}
+.tab-container {
+    border-top: 1px solid #eee;
+}
+
+.command-card {
+	margin-top:20px;
+}
+.command-card:hover {
+	cursor:pointer;
+	box-shadow: 0 5px 11px 0 rgba(0,0,0,0.18),0 4px 15px 0 rgba(0,0,0,0.15);
+}
+.command-card .card-content .card-title {
+	font-weight:200;
+    line-height: 25px;
+}
+.command-card .command-param {
+	font-size: 1.3rem;
+    font-weight: 300;
+}
+
+.waves-effect.waves-light-teal .waves-ripple {
+  background-color: rgba(178, 223, 219, 0.65);
+}
+
+.form-panel {
+	height:100%;
+	position:fixed;
+	right: 0;
+	width:40%;
+}
+
+
+.form-panel .form-title {
+	font-weight:200;
+	font-size:2rem;
+	margin-bottom:30px;
+}
+.form-panel .input-field {
+	margin: 15px 0;
+}
+.form-panel .input-field label,
+.form-panel .input-field input,
+.form-panel .input-field select
+ {
+	font-size:1.2rem;
+}
+
+.select-wrapper {
+	top:10px;
+}
+
+.form-panel .form-actions {
+	margin-top:40px;
+}
+
+#execute-btn {
+    position: fixed;
+    top: 20px;
+    right: 15px;
+    height: 45px;
+    width: 175px;
+}
+#execute-btn:hover {
+	opacity: .85;
 }

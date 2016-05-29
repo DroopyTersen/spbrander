@@ -1,10 +1,12 @@
 var React 			= require("react");
 var ReactDOM 		= require('react-dom');
+var WorkspaceTabs	= require("../../containers/WorkspaceTabs.jsx");
 var Console			= require("../../components/console.jsx");
 var spbrander		= require("spbrander");
 var BrowserWindow 	= require('electron').remote.BrowserWindow
 var path 			= require("path");
-var HomeScreen = React.createClass({
+
+var WorkspaceScreen = React.createClass({
 
 	componentDidMount: function() {
 		var siteUrl = "https://andrewpetersen.sharepoint.com";
@@ -36,5 +38,5 @@ var HomeScreen = React.createClass({
     }
 });
 
-ReactDOM.render(<HomeScreen/>, document.getElementById('root'));
+ReactDOM.render(<WorkspaceScreen />, document.getElementById('root'));
 

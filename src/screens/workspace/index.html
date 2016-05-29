@@ -2,20 +2,24 @@
 <html>
   <head>
     <meta charset="UTF-8">
+    <!-- MATERIALIZE -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+     <link rel="stylesheet" href="../../../vendor/materialize/materialize.css">
     <link rel="stylesheet" type="text/css" href="../../styles/app.css">
-    <link rel="stylesheet" type="text/css" href="../../styles/home.css">
-    <title>SPBrander - Home</title>
+    <title>SPBrander</title>
 
   </head>
   <body >
     <div id='root'></div>
   </body>
+    <script src="../../../vendor/hammer.min.js"></script>
+    <script src="../../../vendor/materialize/materialize.min.js"></script>
     <script>
     const electronHot = require('electron-hot-loader');
     electronHot.install();
     electronHot.watchJsx(['src/**/*.jsx']);
     electronHot.watchCss(['src/**/*.css']);
 
-    require('./home.jsx');
+    require('./index.jsx');
     </script>
 </html>

@@ -4,7 +4,9 @@
   "description": "A desktop application for the SharePoint utility module, spbrander",
   "main": "main.js",
   "scripts": {
-    "start": "electron main.js"
+    "start": "electron main.js",
+    "build:css": "node-sass vendor/materialize/sass/materialize.scss -o vendor/materialize",
+    "watch": "npm run build:css && node-sass vendor/materialize/sass/materialize.scss -o vendor/materialize -w"
   },
   "keywords": [
     "Electron",
@@ -14,11 +16,14 @@
   ],
   "author": "Andrew Petersen",
   "devDependencies": {
+    "clean-css": "^3.4.13",
     "electron-hot-loader": "^0.8.0",
-    "electron-prebuilt": "^1.2.0"
+    "electron-prebuilt": "^1.2.0",
+    "node-sass": "^3.7.0"
   },
   "dependencies": {
     "droopy-server": "^1.0.7",
+    "jquery": "^2.2.4",
     "react": "^15.1.0",
     "react-dom": "^15.1.0",
     "spbrander": "^1.0.7"

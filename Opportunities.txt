@@ -1,0 +1,41 @@
+Site
+	Icon=language
+
+	Upload a file Icon=file upload
+		File Picker
+		Destination Folder
+
+	Add CSS Stylesheet Icon=insert drive file
+		Name
+
+		If Local File
+			File Picker - filter to CSS
+			Destination Folder
+
+		Else if Full Url
+			Url
+
+	Add Javascript File
+		Name
+
+		If Local File
+			File Picker - filter to CSS
+			Destination Folder
+
+		Else if Full Url
+			Url
+
+	Remove CSS or JS injection Icon=delete sweep
+		List existing Custom Actions
+		Name
+		Scope
+
+
+Debugger Server Icon=http cloud upload
+Design View Icon=featured play list
+Script View ICon=attach money
+
+
+Designer.jsx
+	Site
+		SiteForm
