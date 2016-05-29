@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="../../styles/app.css">
+    <link rel="stylesheet" type="text/css" href="../../styles/home.css">
+    <title>SPBrander - Home</title>
+
+  </head>
+  <body >
+    <div id='root'></div>
+  </body>
+    <script>
+    const electronHot = require('electron-hot-loader');
+    electronHot.install();
+    electronHot.watchJsx(['src/**/*.jsx']);
+    electronHot.watchCss(['src/**/*.css']);
+
+    require('./home.jsx');
+    </script>
+</html>
