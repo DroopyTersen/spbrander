@@ -1,3 +1,12 @@
 body {
 	background: #33f;
 }
+
+.console {
+    background: #101010;
+    min-height: 200px;
+    min-width: 400px;
+    color: #ffef70;
+    font-size: 1.3em;
+    padding: 5px 10px;
+}

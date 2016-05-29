@@ -1,33 +1,26 @@
 {
-  "name": "electron-quick-start",
-  "version": "1.0.0",
-  "description": "A minimal Electron application",
+  "name": "spbrander-desktop",
+  "version": "0.0.1",
+  "description": "A desktop application for the SharePoint utility module, spbrander",
   "main": "main.js",
   "scripts": {
     "start": "electron main.js"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/electron/electron-quick-start.git"
-  },
   "keywords": [
     "Electron",
-    "quick",
-    "start",
-    "tutorial"
+    "SharePoint",
+    "SPBrander",
+    "droopy"
   ],
-  "author": "GitHub",
-  "license": "CC0-1.0",
-  "bugs": {
-    "url": "https://github.com/electron/electron-quick-start/issues"
-  },
-  "homepage": "https://github.com/electron/electron-quick-start#readme",
+  "author": "Andrew Petersen",
   "devDependencies": {
     "electron-hot-loader": "^0.8.0",
     "electron-prebuilt": "^1.2.0"
   },
   "dependencies": {
+    "droopy-server": "^1.0.7",
     "react": "^15.1.0",
-    "react-dom": "^15.1.0"
+    "react-dom": "^15.1.0",
+    "spbrander": "^1.0.7"
   }
 }
