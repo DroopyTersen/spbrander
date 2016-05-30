@@ -1,77 +1,84 @@
-.console {
-    background: #101010;
-    min-height: 200px;
-    min-width: 400px;
-    color: #ffef70;
-    font-size: 1.3em;
-    padding: 5px 10px;
-}
-
 .workspace-tabs {
-	padding-top:30px;
-}
-.tab-container {
-    border-top: 1px solid #eee;
-}
+  padding-top: 30px; }
 
-.command-card {
-	margin-top:20px;
-}
+.tab-content {
+  border-top: 1px solid #eee; }
+
+.command-card.card {
+  margin: 2px; }
+
 .command-card:hover {
-	cursor:pointer;
-	box-shadow: 0 5px 11px 0 rgba(0,0,0,0.18),0 4px 15px 0 rgba(0,0,0,0.15);
-}
-.command-card .card-content .card-title {
-	font-weight:200;
-    line-height: 25px;
-}
-.command-card .command-param {
-	font-size: 1.3rem;
-    font-weight: 300;
-}
+  cursor: pointer;
+  box-shadow: 0 5px 11px 0 rgba(0, 0, 0, 0.18), 0 4px 15px 0 rgba(0, 0, 0, 0.15); }
 
-.waves-effect.waves-light-teal .waves-ripple {
-  background-color: rgba(178, 223, 219, 0.65);
-}
+.command-card .card-content .card-title {
+  font-weight: 200;
+  line-height: 25px; }
+
+.tab-content .col.child-commands {
+  padding: 0;
+  position: relative;
+  left: 25px; }
+
+.child-commands .command-card .card-title {
+  font-size: 1.25rem; }
+
+.command-card.card .card-content {
+  padding: 13px; }
+
+.command-card .command-param {
+  font-size: 1.3rem;
+  font-weight: 300; }
+
+.child-commands .command-card .command-param {
+  font-size: 1.15rem; }
 
 .form-panel {
-	height:100%;
-	position:fixed;
-	right: 0;
-	width:40%;
-}
-
+  height: 100%;
+  position: fixed;
+  right: 0;
+  width: 40%;
+  top: 79px; }
 
 .form-panel .form-title {
-	font-weight:200;
-	font-size:2rem;
-	margin-bottom:30px;
-}
+  font-weight: 200;
+  font-size: 2rem;
+  margin-bottom: 30px; }
+
 .form-panel .input-field {
-	margin: 15px 0;
-}
+  margin: 15px 0; }
+
 .form-panel .input-field label,
 .form-panel .input-field input,
-.form-panel .input-field select
- {
-	font-size:1.2rem;
-}
-
-.select-wrapper {
-	top:10px;
-}
+.form-panel .input-field select {
+  font-size: 1.2rem; }
 
 .form-panel .form-actions {
-	margin-top:40px;
-}
+  margin-top: 40px; }
+
+.select-wrapper {
+  top: 10px; }
+
+.form-panel .btn {
+  box-shadow: none; }
 
 #execute-btn {
-    position: fixed;
-    top: 20px;
-    right: 15px;
-    height: 45px;
-    width: 175px;
-}
+  position: fixed;
+  top: 20px;
+  right: 15px;
+  height: 45px;
+  width: 175px; }
+
 #execute-btn:hover {
-	opacity: .85;
-}
+  opacity: .85; }
+
+.console {
+  background: #101010;
+  min-height: 200px;
+  min-width: 400px;
+  color: #ffef70;
+  font-size: 1.3em;
+  padding: 5px 10px; }
+
+.waves-effect.waves-light-teal .waves-ripple {
+  background-color: rgba(178, 223, 219, 0.65); }

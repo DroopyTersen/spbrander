@@ -11,3 +11,14 @@ exports.consoleOverride = function(component) {
 	  };
 	}());
 };
+
+exports.objValues = function(obj) {
+	var values = Object.keys.map(key => obj[k]);
+};
+
+var deactivateCommands = exports.deactivateCommands = function(parentCommand) {
+	parentCommand.isActive = false;
+	Object.keys(parentCommand.commands).forEach(commandId => deactivateCommands(parentCommand.commands[commandId]));
+};
+
+exports.commandFactory = require("./commandFactory.js");

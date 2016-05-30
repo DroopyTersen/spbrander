@@ -1,0 +1,34 @@
+.form-panel {
+    height: 100%;
+    position: fixed;
+    right: 0;
+    width: 40%;
+    top: 79px;
+}
+.form-panel .form-title {
+	font-weight:200;
+	font-size:2rem;
+	margin-bottom:30px;
+}
+.form-panel .input-field {
+	margin: 15px 0;
+}
+
+.form-panel .input-field label,
+.form-panel .input-field input,
+.form-panel .input-field select
+ {
+	font-size:1.2rem;
+}
+
+.form-panel .form-actions {
+	margin-top:40px;
+}
+
+.select-wrapper {
+	top:10px;
+}
+
+.form-panel .btn {
+    box-shadow: none;
+}

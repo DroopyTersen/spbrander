@@ -4839,7 +4839,7 @@ select:disabled {
     line-height: 3rem; }
   .file-field span {
     cursor: pointer; }
-  .file-field input[type=file] {
+  .file-field input[type=file], .file-field input.file {
     position: absolute;
     top: 0;
     right: 0;

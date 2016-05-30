@@ -21,7 +21,7 @@
     cursor: pointer;
   }
 
-  input[type=file] {
+  input[type=file], input.file {
     position: absolute;
     top: 0;
     right: 0;

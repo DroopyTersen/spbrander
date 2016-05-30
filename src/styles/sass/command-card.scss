@@ -1,0 +1,36 @@
+.command-card.card {
+	margin:2px;
+} 
+
+.command-card:hover {
+	cursor:pointer;
+	box-shadow: 0 5px 11px 0 rgba(0,0,0,0.18),0 4px 15px 0 rgba(0,0,0,0.15);
+}
+.command-card .card-content .card-title {
+	font-weight:200;
+    line-height: 25px;
+}
+
+.tab-content .col.child-commands {
+    padding: 0;
+    position:relative;
+    left:25px;
+}  
+
+.child-commands .command-card .card-title {
+    font-size: 1.25rem;
+}
+
+.command-card.card .card-content {
+    padding: 13px;
+}
+
+.command-card .command-param {
+	font-size: 1.3rem;
+    font-weight: 300;
+}
+
+.child-commands .command-card .command-param {
+	font-size: 1.15rem;
+}
+ 
