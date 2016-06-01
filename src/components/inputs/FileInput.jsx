@@ -4,11 +4,13 @@ var ipc = require('electron').ipcRenderer
 
 module.exports = class FileInput extends BaseInput {
 	chooseFile(e) {
-		console.log("emitting event");
-		ipc.send('open-file-dialog', this.props.id);
+		ipc.send('open-file-dialog', this.props.command.id + this.props.id);
 	}
 	componentWillMount() {
-	    ipc.on('selected-file-' + this.props.id, (event, filepath) => {
+	    ipc.on('selected-file-' + this.props.command.id + this.props.id, (event, filepath) => {
+	    	if (Array.isArray(filepath) && filepath.length) {
+	    		filepath = filepath[0];
+	    	}
     		var payload = {
     			id: this.props.command.id,
     			key: this.props.id,

@@ -12,12 +12,8 @@ var Command = module.exports = React.createClass({
         return "";
     },
     renderChildren: function(command) {
-        return Object.keys(command.commands).map(id => {
-            var childCommand = command.commands[id];
-            return <Command 
-                command={childCommand} 
-                onSelect={this.props.onSelect} />
-        })
+        return command.commandsArray
+                        .map(c => <Command command={c} onSelect={this.props.onSelect} />);
     },
     render: function() {
         var command = this.props.command;

@@ -26,7 +26,6 @@ module.exports = React.createClass({
 	    		</div>
 		  	</div>
 
-		  	<ExecuteButton />
 	  	</div>
         );
     }

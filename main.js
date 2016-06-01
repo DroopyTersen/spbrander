@@ -22,8 +22,8 @@ ipc.on('open-file-dialog', function(event, key) {
 function createWindow() {
   // Create the browser window.
   mainWindow = new BrowserWindow({
-      width: 1200,
-      height: 800,
+      width: 1100,
+      height: 700,
       autoHideMenuBar: true,
       // transparent:true,
       // frame:false,

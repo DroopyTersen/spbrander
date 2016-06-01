@@ -1,16 +1,31 @@
 .command-card.card {
 	margin:2px;
+    position:relative;
+    border-top:2px solid #fff;
+    padding: 0;
 } 
-
+.command-card.card.active {
+   border-top: 2px solid #26a69a
+} 
 .command-card:hover {
 	cursor:pointer;
 	box-shadow: 0 5px 11px 0 rgba(0,0,0,0.18),0 4px 15px 0 rgba(0,0,0,0.15);
 }
 .command-card .card-content .card-title {
 	font-weight:200;
+    font-size: 1.2rem;
     line-height: 25px;
 }
-
+.param-key {
+    margin-right: 3px;
+    text-transform: uppercase;
+    font-size:.7em;
+}
+.param-value {
+    border: 1px solid #eee;
+    padding: 3px 6px;
+    max-width:400px;
+}
 .tab-content .col.child-commands {
     padding: 0;
     position:relative;
@@ -18,19 +33,33 @@
 }  
 
 .child-commands .command-card .card-title {
-    font-size: 1.25rem;
+    font-size: 1.1rem;
 }
 
 .command-card.card .card-content {
-    padding: 13px;
+    padding: 10px 13px 13px;
+
 }
 
 .command-card .command-param {
-	font-size: 1.3rem;
+	font-size: 1.1rem;
     font-weight: 300;
+    margin-right: 15px;
+    display:inline-block;
+    line-height:2.2rem;
 }
 
 .child-commands .command-card .command-param {
-	font-size: 1.15rem;
+	font-size: 1rem;
 }
- 
+
+.command-card .delete-btn {
+    position:absolute;
+    top: 0px;
+    right:-15px;
+    opacity: .6;
+}
+
+.command-card .delete-btn:hover {
+    opacity: 1;
+}

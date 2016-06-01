@@ -1,6 +1,10 @@
 .workspace-tabs {
-	padding-top:30px;
+	padding-top:0px;
 }
 .tab-content {
     border-top: 1px solid #eee;
+}
+.workspace-tabs .tabs .tab a {
+    position: relative;
+    top: 8px;
 }

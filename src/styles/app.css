@@ -1,11 +1,21 @@
 .workspace-tabs {
-  padding-top: 30px; }
+  padding-top: 0px; }
 
 .tab-content {
   border-top: 1px solid #eee; }
 
+.workspace-tabs .tabs .tab a {
+  position: relative;
+  top: 8px; }
+
 .command-card.card {
-  margin: 2px; }
+  margin: 2px;
+  position: relative;
+  border-top: 2px solid #fff;
+  padding: 0; }
+
+.command-card.card.active {
+  border-top: 2px solid #26a69a; }
 
 .command-card:hover {
   cursor: pointer;
@@ -13,7 +23,18 @@
 
 .command-card .card-content .card-title {
   font-weight: 200;
+  font-size: 1.2rem;
   line-height: 25px; }
+
+.param-key {
+  margin-right: 3px;
+  text-transform: uppercase;
+  font-size: .7em; }
+
+.param-value {
+  border: 1px solid #eee;
+  padding: 3px 6px;
+  max-width: 400px; }
 
 .tab-content .col.child-commands {
   padding: 0;
@@ -21,17 +42,29 @@
   left: 25px; }
 
 .child-commands .command-card .card-title {
-  font-size: 1.25rem; }
+  font-size: 1.1rem; }
 
 .command-card.card .card-content {
-  padding: 13px; }
+  padding: 10px 13px 13px; }
 
 .command-card .command-param {
-  font-size: 1.3rem;
-  font-weight: 300; }
+  font-size: 1.1rem;
+  font-weight: 300;
+  margin-right: 15px;
+  display: inline-block;
+  line-height: 2.2rem; }
 
 .child-commands .command-card .command-param {
-  font-size: 1.15rem; }
+  font-size: 1rem; }
+
+.command-card .delete-btn {
+  position: absolute;
+  top: 0px;
+  right: -15px;
+  opacity: .6; }
+
+.command-card .delete-btn:hover {
+  opacity: 1; }
 
 .form-panel {
   height: 100%;
@@ -42,7 +75,7 @@
 
 .form-panel .form-title {
   font-weight: 200;
-  font-size: 2rem;
+  font-size: 1.6rem;
   margin-bottom: 30px; }
 
 .form-panel .input-field {
@@ -51,7 +84,7 @@
 .form-panel .input-field label,
 .form-panel .input-field input,
 .form-panel .input-field select {
-  font-size: 1.2rem; }
+  font-size: 1rem; }
 
 .form-panel .form-actions {
   margin-top: 40px; }
@@ -64,13 +97,23 @@
 
 #execute-btn {
   position: fixed;
-  top: 20px;
+  top: 5px;
   right: 15px;
-  height: 45px;
-  width: 175px; }
+  height: 35px;
+  width: 160px; }
 
 #execute-btn:hover {
   opacity: .85; }
+
+.new-command-btn.btn-floating {
+  position: absolute;
+  right: auto;
+  left: 10px;
+  bottom: -60px;
+  opacity: 0.65; }
+
+.new-command-btn.btn-floating:hover {
+  opacity: 1; }
 
 .console {
   background: #101010;

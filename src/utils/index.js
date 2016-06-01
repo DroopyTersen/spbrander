@@ -21,4 +21,3 @@ var deactivateCommands = exports.deactivateCommands = function(parentCommand) {
 	Object.keys(parentCommand.commands).forEach(commandId => deactivateCommands(parentCommand.commands[commandId]));
 };
 
-exports.commandFactory = require("./commandFactory.js");
