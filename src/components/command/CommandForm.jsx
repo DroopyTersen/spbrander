@@ -8,7 +8,7 @@ module.exports = React.createClass({
         return (
 			<div className='form-panel col z-depth-1'>
 		    	<form className='col s12'>
-		    		<h3 className='form-title teal-text'>{this.props.title}</h3>
+		    		<h3 className='form-title teal-text col s12'>{this.props.title}</h3>
 		    		<div className='command-form-content'>
 		    			{this.props.children}
 		    		</div>

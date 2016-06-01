@@ -1,3 +1,5 @@
+var PowerShell = require('node-powershell');
+
 exports.consoleOverride = function(component) {
   	(function () {
 	  var log = console.log;
@@ -21,3 +23,11 @@ var deactivateCommands = exports.deactivateCommands = function(parentCommand) {
 	Object.keys(parentCommand.commands).forEach(commandId => deactivateCommands(parentCommand.commands[commandId]));
 };
 
+exports.runPowershellBlock = function(scriptBlock, done) {
+	return new Promise((resolve, reject) => {
+		var psCommand = new PowerShell(scriptBlock);
+		psCommand.on('output', data => console.log(data));
+		psCommand.on('end', resolve);
+		psCommand.on('error', reject);
+	});
+};

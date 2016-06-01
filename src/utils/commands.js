@@ -55,7 +55,10 @@ exports.UploadCommand = class UploadCommand extends Command {
 		this.params = { filepath, folder };
 	}
 	invoke(spBranderSite) {
-		return spBranderSite.upload(this.params.filepath, this.params.folder);
+		if (this.params.filepath && this.params.folder) {
+			return spBranderSite.upload(this.params.filepath, this.params.folder);
+		} 
+		return spBranderSite;
 	}
 }
 

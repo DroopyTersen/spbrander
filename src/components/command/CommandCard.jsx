@@ -14,7 +14,8 @@ module.exports = React.createClass({
 		return <div className='command-params'>{params}</div>;
 	},
 	handleClick: function(e) {
-		this.props.onSelect(this.props.command);
+		e.preventDefault();
+		$(document).trigger("command-select", this.props.command.id);
 	},
 	handleDelete: function(e) {
 		e.preventDefault();

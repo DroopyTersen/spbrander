@@ -10,6 +10,7 @@ let mainWindow
 
 const ipc = require('electron').ipcMain
 const dialog = require('electron').dialog
+var psRunner = null;
 
 ipc.on('open-file-dialog', function(event, key) {
   dialog.showOpenDialog({
@@ -17,6 +18,21 @@ ipc.on('open-file-dialog', function(event, key) {
   }, function(file) {
     if (file) event.sender.send('selected-file-' + key, file)
   })
+})
+
+ipc.on('run-powershell', (e, scriptBlock) => {
+  console.log("Run powershell");
+  if (psRunner) {
+    psRunner.close();
+    psRunner = null;
+  }
+  psRunner = new BrowserWindow({ width:500, height:289, autoHideMenuBar: true })
+  psRunner.on('closed', () => psRunner = null )
+  psRunner.loadURL(`file://${__dirname}/src/screens/powershellrunner/index.html`)
+  psRunner.show();
+  setTimeout(() => {
+    psRunner.webContents.send('run-powershell', scriptBlock);
+  },1000);
 })
 
 function createWindow() {

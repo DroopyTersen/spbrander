@@ -3,12 +3,12 @@
     position: fixed;
     right: 0;
     width: 40%;
-    top: 79px;
+    top: 49px;
 }
 .form-panel .form-title {
-	font-weight:200;
+	font-weight:300;
 	font-size:1.6rem;
-	margin-bottom:30px;
+	margin-bottom:20px;
 }
 .form-panel .input-field {
 	margin: 15px 0;
@@ -17,10 +17,12 @@
 .form-panel .input-field label,
 .form-panel .input-field input,
 .form-panel .input-field select
- {
+{
 	font-size:1rem;
 }
-
+.form-panel .file-field.input-field input {
+	font-size:0.9rem;
+}
 .form-panel .form-actions {
 	margin-top:40px;
 }

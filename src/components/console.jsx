@@ -7,11 +7,14 @@ module.exports = React.createClass({
 			console: []
 		}
 	},
-
 	componentWillMount: function() {
       	utils.consoleOverride(this);
 	},
     render: function() {
+		setTimeout(() => {
+    		window.scrollTo(0,document.body.scrollHeight);
+    	}, 20);
+    	
     	var content = ">> " + this.state.console.join("\n>> ");
         return (
 	    	<div className='console'>

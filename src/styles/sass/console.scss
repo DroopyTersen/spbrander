@@ -3,6 +3,10 @@
     min-height: 200px;
     min-width: 400px;
     color: #ffef70;
-    font-size: 1.3em;
+    font-size: 1rem;
     padding: 5px 10px;
+}
+
+.console pre {
+    white-space: pre-wrap;       /* Since CSS 2.1 */
 }

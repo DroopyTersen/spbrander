@@ -22,7 +22,7 @@
   box-shadow: 0 5px 11px 0 rgba(0, 0, 0, 0.18), 0 4px 15px 0 rgba(0, 0, 0, 0.15); }
 
 .command-card .card-content .card-title {
-  font-weight: 200;
+  font-weight: 300;
   font-size: 1.2rem;
   line-height: 25px; }
 
@@ -71,12 +71,12 @@
   position: fixed;
   right: 0;
   width: 40%;
-  top: 79px; }
+  top: 49px; }
 
 .form-panel .form-title {
-  font-weight: 200;
+  font-weight: 300;
   font-size: 1.6rem;
-  margin-bottom: 30px; }
+  margin-bottom: 20px; }
 
 .form-panel .input-field {
   margin: 15px 0; }
@@ -85,6 +85,9 @@
 .form-panel .input-field input,
 .form-panel .input-field select {
   font-size: 1rem; }
+
+.form-panel .file-field.input-field input {
+  font-size: 0.9rem; }
 
 .form-panel .form-actions {
   margin-top: 40px; }
@@ -97,7 +100,7 @@
 
 #execute-btn {
   position: fixed;
-  top: 5px;
+  top: 7px;
   right: 15px;
   height: 35px;
   width: 160px; }
@@ -120,8 +123,24 @@
   min-height: 200px;
   min-width: 400px;
   color: #ffef70;
-  font-size: 1.3em;
+  font-size: 1rem;
   padding: 5px 10px; }
+
+.console pre {
+  white-space: pre-wrap;
+  /* Since CSS 2.1 */ }
+
+.powershell-runner {
+  padding: 10px;
+  color: #fff; }
+  .powershell-runner h2 {
+    font-weight: 200;
+    font-size: 1.3rem;
+    margin: 5px 0; }
+  .powershell-runner .console {
+    text-align: left;
+    border-radius: 3px;
+    border: 1px solid #fff8c8; }
 
 .waves-effect.waves-light-teal .waves-ripple {
   background-color: rgba(178, 223, 219, 0.65); }
