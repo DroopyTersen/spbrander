@@ -7,9 +7,11 @@
     "start": "electron main.js",
     "test": "mocha",
     "test:watch": "mocha --watch --reporter min",
-    "build:materialize": "node-sass vendor/materialize/sass/materialize.scss -o vendor/materialize",
-    "build:css": "node-sass src/styles/sass/app.scss -o src/styles",
-    "css:watch": "watch \"npm run build:css\" src/styles/sass --interval .1"
+    "materialize": "node-sass vendor/materialize/sass/materialize.scss -o vendor/materialize",
+    "sass": "node-sass styles/sass/app.scss -o styles",
+    "sass:watch": "watch \"npm run build:css\" styles/sass --interval .1",
+    "lint": "eslint src/** --ignore-pattern *.html",
+    "lint:watch": "watch \"npm run lint --silent\" src --interval .1"
   },
   "keywords": [
     "Electron",
@@ -23,6 +25,8 @@
     "clean-css": "^3.4.13",
     "electron-hot-loader": "^0.8.0",
     "electron-prebuilt": "^1.2.0",
+    "eslint": "^2.11.1",
+    "eslint-plugin-react": "^5.1.1",
     "mocha": "^2.5.3",
     "node-sass": "^3.7.0",
     "watch": "^0.18.0"
@@ -36,5 +40,19 @@
     "react": "^15.1.0",
     "react-dom": "^15.1.0",
     "spbrander": "^1.0.7"
+  },
+  "eslintConfig": {
+    "env": {
+      "browser": true,
+      "node": true,
+      "es6": true
+    },
+    "parserOptions": {
+      "ecmaVersion": 7,
+      "ecmaFeatures": {
+        "jsx": true
+      }
+    },
+    "plugins": [ "react" ]
   }
 }

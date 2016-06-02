@@ -8,7 +8,7 @@ var Command 		= require("../components/command/Command.jsx")
 var store 			= require("../stores").siteCommand;
 
 module.exports = React.createClass({
-	getInitialState:() => { siteCommand: store.getValue() }
+	getInitialState:() => { siteCommand: store.getValue() },
 	componentWillMount: function() {
 		store.on("update", () => {
 			this.setState({ siteCommand: store.getValue() })
