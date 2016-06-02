@@ -5,6 +5,8 @@
   "main": "main.js",
   "scripts": {
     "start": "electron main.js",
+    "test": "mocha",
+    "test:watch": "mocha --watch --reporter min",
     "build:materialize": "node-sass vendor/materialize/sass/materialize.scss -o vendor/materialize",
     "build:css": "node-sass src/styles/sass/app.scss -o src/styles",
     "css:watch": "watch \"npm run build:css\" src/styles/sass --interval .1"
@@ -17,13 +19,16 @@
   ],
   "author": "Andrew Petersen",
   "devDependencies": {
+    "chai": "^3.5.0",
     "clean-css": "^3.4.13",
     "electron-hot-loader": "^0.8.0",
     "electron-prebuilt": "^1.2.0",
+    "mocha": "^2.5.3",
     "node-sass": "^3.7.0",
     "watch": "^0.18.0"
   },
   "dependencies": {
+    "droopy-events": "0.0.0",
     "droopy-server": "^1.0.7",
     "jquery": "^2.2.4",
     "node-powershell": "^1.1.0",

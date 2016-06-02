@@ -1,6 +1,6 @@
 var React = require("react");
 var inputs = require("../inputs");
-var FormButton = require("./FormButton.jsx")
+var FormButton = require("../buttons/FormButton.jsx")
 
 module.exports = React.createClass({
     render: function() {
