@@ -1,5 +1,5 @@
 var React = require("react");
-var utils = require("../utils");
+var utils = require("../../utils");
 
 module.exports = React.createClass({
 	getInitialState: function() {
@@ -12,7 +12,8 @@ module.exports = React.createClass({
 	},
     render: function() {
 		setTimeout(() => {
-    		window.scrollTo(0,document.body.scrollHeight);
+			var c = document.querySelector('.console');
+			c.scrollTop = c.scrollHeight;
     	}, 20);
     	
     	var content = ">> " + this.state.console.join("\n>> ");

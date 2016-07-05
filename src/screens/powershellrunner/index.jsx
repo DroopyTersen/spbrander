@@ -1,13 +1,13 @@
 var React 			= require("react");
 var ReactDOM 		= require('react-dom');
-var PSRunner		= require("../../components/PSRunner.jsx");
+var PSRunner		= require("../../components/runners/PSRunner.jsx");
 var ipc 			= require('electron').ipcRenderer
 
 var PSRunnerScreen = React.createClass({
 	getInitialState: function() {
 		return { 
 			shouldRun: false, 
-			message: "Executing SharePoint Commands...",
+			message: "Executing SharePoint Commands",
 			scriptBlock: "",  };
 	},
 	componentWillMount: function() {

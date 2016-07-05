@@ -23,7 +23,7 @@ exports.run = function() {
 			actions.should.have.property("commands");
 			actions.commands.should.have.property("add");
 			actions.commands.add.subscribe(actionHandler);
-			actions.commands.add.trigger();
+			actions.commands.add();
 		});
 
 		it("Should allow you to pass an arbitrary payload", function(done) {
@@ -38,7 +38,7 @@ exports.run = function() {
 			actions.should.have.property("commands");
 			actions.commands.should.have.property("add");
 			actions.commands.add.subscribe(actionHandler);
-			actions.commands.add.trigger(addPayload);
+			actions.commands.add(addPayload);
 		});
 	})
 };

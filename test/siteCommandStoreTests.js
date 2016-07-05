@@ -32,8 +32,12 @@ exports.run = function() {
 
 		context("handlers", function() {
 			context("ADD", function() {
-				it("Should add a child command and emit an update event", function(done) {
+				beforeEach(function(done) {
+					store._reset();
 					store.getValue().children.should.have.length(0);
+					setTimeout(done, 20);
+				});
+				it("Should add a child command and emit an update event", function(done) {
 					var storeHandler = () => {
 						store.getValue().children.should.have.length(1);
 						store.off("update", storeHandler);
@@ -41,27 +45,51 @@ exports.run = function() {
 					}
 					
 					store.on("update", storeHandler);
-					commandActions.add.trigger({ type: "upload"})
+					commandActions.add({ type: "upload"})
  
+				});
+				it("Should should be able to add twice and have separate non-linked child commands", function(done) {
+					var storeHandler = () => {
+						if (store.getValue().children.length > 1) {
+							var c1 = store.getValue().children[0];
+							var c2 = store.getValue().children[1];
+							c1.should.not.equal(c2);
+							store.off("update", storeHandler);
+							done();							
+						}
+					}
+					
+					store.on("update", storeHandler);
+					commandActions.add({ type: "upload"})
+					commandActions.add({ type: "upload"})
 				});
 			})
 
 			context("UPDATE", function() {
-				it("Should update the command and emit an update event", function(done) {
-					store.getValue().children.should.have.length(1);
+				beforeEach(function(done) {
+					store._reset();
+					store.getValue().children.should.have.length(0);
+					commandActions.add({ type: "upload"})
+					commandActions.add({ type: "upload"})
+					setTimeout(done, 20);
+				});
+				it("Should update the targeted command and emit an update event", function(done) {
+					store.getValue().children.should.have.length(2);
+
 					var id = store.getValue().children[0].id;
 					var folderValue = "New Value";
 
 					var storeHandler = () => {
-						store.getValue().children.should.have.length(1);
+						store.getValue().children.should.have.length(2);
 						store.getValue().children[0].params.folder.should.equal(folderValue);
+						store.getValue().children[1].params.folder.should.not.equal(folderValue);
 						store.off("update", storeHandler);
 						done();
 					}
 					
 					store.on("update", storeHandler);
-					commandActions.update.trigger({id, key: "folder", value: folderValue });					
-				})
+					commandActions.update({id, key: "folder", value: folderValue });	
+				});
 			})
 
 			context("SELECT", function() {
@@ -74,11 +102,17 @@ exports.run = function() {
 						done();
 					};
 					store.on("update", storeHandler);
-					commandActions.select.trigger({id});
+					commandActions.select({id});
 				})
 			})
 
 			context("DELETE", function() {
+				beforeEach(function(done) {
+					store._reset();
+					store.getValue().children.should.have.length(0);
+					commandActions.add({ type: "upload"})
+					setTimeout(done, 20);
+				});
 				it("Should remove the child command and emit an update event", function(done) {
 					store.getValue().children.should.have.length(1);
 					var id = store.getValue().children[0].id;
@@ -90,13 +124,9 @@ exports.run = function() {
 					}
 					
 					store.on("update", storeHandler);
-					commandActions.delete.trigger({id});					
+					commandActions.delete({id});					
 				})
 			})
-
-
-
-
 		})
 	})
 }

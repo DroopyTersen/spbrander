@@ -1,6 +1,7 @@
 var React = require("react");
 var CommandCard = require("./CommandCard.jsx")
 var CommandForm = require("./CommandForm.jsx")
+var CommandPicker   = require("./CommandPicker.jsx")
 
 var Command = module.exports = React.createClass({
     renderForm: function(command) {
@@ -12,18 +13,24 @@ var Command = module.exports = React.createClass({
         return "";
     },
     renderChildren: function(command) {
-        return command.commandsArray
-                        .map(c => <Command command={c} onSelect={this.props.onSelect} />);
+        return command.children
+                        .map(c => <Command command={c} />);
+    },
+    renderCommandPicker: function(c) {
+        return (c.childOptions && c.childOptions.length) 
+            ? <CommandPicker command={c} />
+            : "";
     },
     render: function() {
         var command = this.props.command;
         return (
 	    	<div>
-    			<CommandCard command={command} onSelect={this.props.onSelect} />
+    			<CommandCard command={command} />
                 {this.renderForm(command)}
                 <div className='col s12 child-commands'>
                 {this.renderChildren(command)}
                 </div>
+                {this.renderCommandPicker(command)}
 	        </div>
         );
     }

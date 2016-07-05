@@ -4,6 +4,7 @@ exports.init = function() {
 	var actions = new Eventer();
 	actions._keys = {};
 
+
 	var actionPrototype = {
 		trigger(payload) {
 			actions.trigger(this.key, payload)
@@ -25,7 +26,10 @@ exports.init = function() {
 			actions.trigger("error", { key, message })
 			throw new Error(message);
 		}
-		return actions._keys[key] = Object.assign({}, actionPrototype, {key});
+		var actionObj = Object.assign({}, actionPrototype, {key});
+		var action = (payload) => actions.trigger(key, payload)
+		action = Object.assign(action, actionObj);
+		return actions._keys[key] = action;
 	};
 
 	return actions;

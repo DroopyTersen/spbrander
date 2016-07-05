@@ -1,4 +1,5 @@
 var React = require("react");
+var actions = require("../../actions");
 
 module.exports = React.createClass({
 	renderParams: function(params) {
@@ -15,13 +16,12 @@ module.exports = React.createClass({
 	},
 	handleClick: function(e) {
 		e.preventDefault();
-		$(document).trigger("command-select", this.props.command.id);
+		actions.commands.select({ id: this.props.command.id })
 	},
 	handleDelete: function(e) {
 		e.preventDefault();
 		e.stopPropagation();
-		$(document).trigger("command-delete", { id: this.props.command.id });
-
+		actions.commands.delete({ id: this.props.command.id })
 	},
 	getClasses: function(command) {
 		var classes = 'col s10 card command-card waves-effect waves-light-teal'

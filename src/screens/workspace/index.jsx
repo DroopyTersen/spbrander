@@ -1,6 +1,6 @@
 var React 			= require("react");
 var ReactDOM 		= require('react-dom');
-var WorkspaceTabs	= require("../../containers/WorkspaceTabs.jsx");
+var WorkspaceTabs	= require("../../components/WorkspaceTabs.jsx");
 
 var WorkspaceScreen = React.createClass({
     render: function() {

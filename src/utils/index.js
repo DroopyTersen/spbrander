@@ -1,4 +1,5 @@
 var PowerShell = require('node-powershell');
+const shell = require('electron').shell
 
 exports.consoleOverride = function(component) {
   	(function () {
@@ -12,6 +13,10 @@ exports.consoleOverride = function(component) {
 	    log.apply(this, args);
 	  };
 	}());
+};
+
+exports.openExternalLink = function(url) {
+	if (url) shell.openExternal(url);
 };
 
 exports.runPowershellBlock = function(scriptBlock, done) {

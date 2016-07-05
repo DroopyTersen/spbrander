@@ -1,11 +1,41 @@
-.new-command-btn.btn-floating {
+.command-picker.col.s8 {
     position: absolute;
     right: auto;
     left: 10px;
-    bottom: -60px;
-    opacity:0.65;
-}
+    bottom: -160px;
+    padding: 20px 20px 100px 0;
 
-.new-command-btn.btn-floating:hover {
-  opacity:1;
+    .dropdown {
+    	display:inline-block;
+    	select {
+    		width:100%
+
+
+    	}
+    	opacity: 0;
+    	transition: opacity 0.2s ease-out, transform 0.4s ease-out;
+    	position:relative;
+    	left:-25px;
+    }
+
+    .new-command-btn {
+    	opacity:0.65;
+    	float:left;
+    	position:relative;
+        cursor:default;
+    	top:3px;
+    	transition: all 0.3s ease-out;
+    }
+
+    &:hover, &.active {
+		.new-command-btn {
+			opacity: 1;
+			box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16),0 2px 10px 0 rgba(0,0,0,0.12);
+		}
+
+		.dropdown {
+			opacity: 1;
+			transform: translateX(25px);
+		}
+    }
 }

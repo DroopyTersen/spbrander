@@ -1,66 +1,81 @@
-const electron = require('electron')
-  // Module to control application life.
-const app = electron.app
-  // Module to create native browser window.
+const electron 		= require('electron')
+const ipc 			= require('electron').ipcMain
+const dialog 		= require('electron').dialog
+
 const BrowserWindow = electron.BrowserWindow
+const app = electron.app
 
-// Keep a global reference of the window object, if you don't, the window will
-// be closed automatically when the JavaScript object is garbage collected.
-let mainWindow
+//Windows
+let mainWindow 	= null;
+let psRunner 	= null;
 
-const ipc = require('electron').ipcMain
-const dialog = require('electron').dialog
-var psRunner = null;
 
-ipc.on('open-file-dialog', function(event, key) {
-  dialog.showOpenDialog({
-    properties: ['openFile']
-  }, function(file) {
-    if (file) event.sender.send('selected-file-' + key, file)
-  })
+var openFileDialog = function(opts = {}) {
+	return new Promise((resolve, reject) => {
+		var defaults = { properties: ["openFile"] };
+		var options = Object.assign({}, defaults, opts);
+		dialog.showOpenDialog(options, resolve);
+	});
+}
+
+var closePowershellRunner = function() {
+	if (psRunner) {
+		psRunner.close();
+		psRunner = null;
+	}
+};
+
+var openPowershellRunner = function(scriptBlock) {
+	psRunner = new BrowserWindow({ width:700, height:400, autoHideMenuBar: true, transparent: false, frame:false })
+	psRunner.on("closed", closePowershellRunner);
+	psRunner.loadURL(`file://${__dirname}/src/screens/powershellrunner/index.html`)
+	psRunner.show();
+	psRunner.webContents.openDevTools()
+
+	// HACK
+	setTimeout(() => {
+		psRunner.webContents.send('run-powershell', scriptBlock);
+	},1000);
+};
+
+ipc.on('open-file-dialog', (event, payload) => {
+		console.log(payload);
+	openFileDialog().then((file = "") => {
+		payload.file = file;
+ 		event.sender.send('close-file-dialog-' + payload, file)
+	});
 })
 
-ipc.on('run-powershell', (e, scriptBlock) => {
-  console.log("Run powershell");
-  if (psRunner) {
-    psRunner.close();
-    psRunner = null;
-  }
-  psRunner = new BrowserWindow({ width:500, height:289, autoHideMenuBar: true })
-  psRunner.on('closed', () => psRunner = null )
-  psRunner.loadURL(`file://${__dirname}/src/screens/powershellrunner/index.html`)
-  psRunner.show();
-  setTimeout(() => {
-    psRunner.webContents.send('run-powershell', scriptBlock);
-  },1000);
-})
+ipc.on('done-powershell', e => {
+
+});
+
+ipc.on('run-powershell', (e, scriptBlock) => openPowershellRunner(scriptBlock));
 
 function createWindow() {
-  // Create the browser window.
-  mainWindow = new BrowserWindow({
-      width: 1100,
-      height: 700,
-      autoHideMenuBar: true,
-      // transparent:true,
-      // frame:false,
-      fullscreenable: false,
-      maximizable: false,
-      resizable: false
-    })
-    // mainWindow.setMenu(null);
-    // and load the index.html of the app.
-  mainWindow.loadURL(`file://${__dirname}/src/screens/workspace/index.html`)
+	// Create the browser window.
+	mainWindow = new BrowserWindow({
+			width: 1100,
+			height: 700,
+			autoHideMenuBar: true,
+			fullscreenable: false,
+			maximizable: false,
+			resizable: false
+		})
+		// mainWindow.setMenu(null);
+		// and load the index.html of the app.
+	mainWindow.loadURL(`file://${__dirname}/src/screens/workspace/index.html`)
 
-  // Open the DevTools.
-  mainWindow.webContents.openDevTools()
+	// Open the DevTools.
+	mainWindow.webContents.openDevTools()
 
-  // Emitted when the window is closed.
-  mainWindow.on('closed', function() {
-    // Dereference the window object, usually you would store windows
-    // in an array if your app supports multi windows, this is the time
-    // when you should delete the corresponding element.
-    mainWindow = null
-  })
+	// Emitted when the window is closed.
+	mainWindow.on('closed', function() {
+		// Dereference the window object, usually you would store windows
+		// in an array if your app supports multi windows, this is the time
+		// when you should delete the corresponding element.
+		mainWindow = null
+	})
 }
 
 // This method will be called when Electron has finished
@@ -69,11 +84,11 @@ function createWindow() {
 app.on('ready', createWindow)
 
 app.on('activate', function() {
-  // On OS X it's common to re-create a window in the app when the
-  // dock icon is clicked and there are no other windows open.
-  if (mainWindow === null) {
-    createWindow()
-  }
+	// On OS X it's common to re-create a window in the app when the
+	// dock icon is clicked and there are no other windows open.
+	if (mainWindow === null) {
+		createWindow()
+	}
 })
 
 // In this file you can include the rest of your app's specific main process

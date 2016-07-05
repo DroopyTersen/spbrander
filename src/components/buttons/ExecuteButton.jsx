@@ -1,10 +1,10 @@
 var React = require("react");
+var actions = require("../../actions");
 
 module.exports = React.createClass({
 	handleClick: function(e) {
 		e.preventDefault();
-		$(document).trigger("execute-click");
-		//$("#execute-btn").attr("disabled", true);
+		actions.commands.execute();
 	},
 	componentWillMount: function() {
 		$(document).on("done-executing-script", () => {

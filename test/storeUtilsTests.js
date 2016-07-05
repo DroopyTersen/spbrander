@@ -49,7 +49,7 @@ exports.run = function() {
 				var store = storeUtils.createStore();
 
 				store.createActionHandler(action, handler);
-				action.trigger();
+				action();
 			});
 			it("Should trigger an {eventKey} event on the store", function(done) {
 				var action = actionUtils.init()._create("test-action");
@@ -59,7 +59,7 @@ exports.run = function() {
 				var store = storeUtils.createStore();
 				store.on('update', storeHandler);
 				store.createActionHandler(action, handler);
-				action.trigger();
+				action();
 			})
 
 			it("Should pass the payload to the handler", function(done) {
@@ -90,7 +90,7 @@ exports.run = function() {
 				store.on('update', storeHandler);
 				actions.on("error", errHandler);
 				store.createActionHandler(action, handler, ["id"]);
-				action.trigger();					
+				action();					
 			})
 
 		})

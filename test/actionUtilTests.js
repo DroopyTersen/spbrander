@@ -13,14 +13,23 @@ exports.run = function() {
 			})
 		});
 		context("actions._create(key)", function() {
-			it("Should return an object with event methods", function() {
+			it("Should return an function with event methods", function() {
 				var action = actions._create("test");
+				action.should.be.a("function");
 				action.should.have.property("trigger");
 				action.should.have.property("subscribe");
 				action.should.have.property("unsubscribe");
 				action.should.have.property("error");
 			});
-			it("Should allow you to subscribe and trigger", function(done) {
+			it("Should allow you to subscribe 'trigger' by invoking the action as a function", function(done) {
+				var action = actions._create("test1.2");
+				var actionHandler = () => { 
+					done();
+				};
+				action.subscribe(actionHandler);
+				action();
+			});
+			it("Should allow you to subscribe and trigger with explicit 'trigger' method", function(done) {
 				var action = actions._create("test2");
 				var actionHandler = () => { 
 					done();
@@ -39,7 +48,7 @@ exports.run = function() {
 					done();
 				};
 				action.subscribe(actionHandler);
-				action.trigger(actionPayload);
+				action(actionPayload);
 			});
 
 			it("Should allow you to trigger an error event", function(done){

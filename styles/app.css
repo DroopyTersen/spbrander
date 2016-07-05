@@ -1,70 +1,71 @@
-.workspace-tabs {
+.row.workspace-tabs {
   padding-top: 0px; }
-
-.tab-content {
-  border-top: 1px solid #eee; }
-
-.workspace-tabs .tabs .tab a {
-  position: relative;
-  top: 8px; }
+  .row.workspace-tabs .tab-headers {
+    position: fixed;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    background: #fff;
+    z-index: 1;
+    border-bottom: 1px solid #eee; }
+    .row.workspace-tabs .tab-headers .tabs .tab a {
+      position: relative;
+      top: 8px; }
+  .row.workspace-tabs .tab-content {
+    position: absolute;
+    top: 48px;
+    z-index: 0; }
 
 .command-card.card {
   margin: 2px;
   position: relative;
-  border-top: 2px solid #fff;
+  border-top: 3px solid #fff;
   padding: 0; }
-
-.command-card.card.active {
-  border-top: 2px solid #26a69a; }
-
-.command-card:hover {
-  cursor: pointer;
-  box-shadow: 0 5px 11px 0 rgba(0, 0, 0, 0.18), 0 4px 15px 0 rgba(0, 0, 0, 0.15); }
-
-.command-card .card-content .card-title {
-  font-weight: 300;
-  font-size: 1.2rem;
-  line-height: 25px; }
-
-.param-key {
-  margin-right: 3px;
-  text-transform: uppercase;
-  font-size: .7em; }
-
-.param-value {
-  border: 1px solid #eee;
-  padding: 3px 6px;
-  max-width: 400px; }
+  .command-card.card.active {
+    border-top: 3px solid #26a69a; }
+  .command-card.card:hover {
+    cursor: pointer;
+    box-shadow: 0 5px 11px 0 rgba(0, 0, 0, 0.18), 0 4px 15px 0 rgba(0, 0, 0, 0.15); }
+  .command-card.card .card-content {
+    padding: 10px 13px 13px; }
+    .command-card.card .card-content .card-title {
+      font-weight: 300;
+      font-size: 1.3rem;
+      line-height: 25px; }
+    .command-card.card .card-content .command-param {
+      font-size: 1.1rem;
+      font-weight: 300;
+      margin-right: 15px;
+      display: inline-block;
+      line-height: 2.2rem; }
+      .command-card.card .card-content .command-param .param-key {
+        margin-right: 3px;
+        text-transform: uppercase;
+        font-size: .7em; }
+      .command-card.card .card-content .command-param .param-value {
+        border: 1px solid #eee;
+        padding: 0px 6px;
+        max-width: 400px;
+        position: relative;
+        display: inline-flex;
+        overflow: hidden;
+        margin: 5px 0; }
+  .command-card.card .delete-btn {
+    position: absolute;
+    top: 0px;
+    right: -15px;
+    opacity: .6; }
+    .command-card.card .delete-btn:hover {
+      opacity: 1; }
 
 .tab-content .col.child-commands {
   padding: 0;
   position: relative;
   left: 25px; }
-
-.child-commands .command-card .card-title {
-  font-size: 1.1rem; }
-
-.command-card.card .card-content {
-  padding: 10px 13px 13px; }
-
-.command-card .command-param {
-  font-size: 1.1rem;
-  font-weight: 300;
-  margin-right: 15px;
-  display: inline-block;
-  line-height: 2.2rem; }
-
-.child-commands .command-card .command-param {
-  font-size: 1rem; }
-
-.command-card .delete-btn {
-  position: absolute;
-  top: 0px;
-  right: -15px;
-  opacity: .6; }
-
-.command-card .delete-btn:hover {
-  opacity: 1; }
+  .tab-content .col.child-commands .command-card .card-title {
+    font-size: 1.1rem; }
+  .tab-content .col.child-commands .command-card .command-param {
+    font-size: 0.9rem; }
 
 .form-panel {
   height: 100%;
@@ -108,15 +109,33 @@
 #execute-btn:hover {
   opacity: .85; }
 
-.new-command-btn.btn-floating {
+.command-picker.col.s8 {
   position: absolute;
   right: auto;
   left: 10px;
-  bottom: -60px;
-  opacity: 0.65; }
-
-.new-command-btn.btn-floating:hover {
-  opacity: 1; }
+  bottom: -160px;
+  padding: 20px 20px 100px 0; }
+  .command-picker.col.s8 .dropdown {
+    display: inline-block;
+    opacity: 0;
+    transition: opacity 0.2s ease-out, transform 0.4s ease-out;
+    position: relative;
+    left: -25px; }
+    .command-picker.col.s8 .dropdown select {
+      width: 100%; }
+  .command-picker.col.s8 .new-command-btn {
+    opacity: 0.65;
+    float: left;
+    position: relative;
+    cursor: default;
+    top: 3px;
+    transition: all 0.3s ease-out; }
+  .command-picker.col.s8:hover .new-command-btn, .command-picker.col.s8.active .new-command-btn {
+    opacity: 1;
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12); }
+  .command-picker.col.s8:hover .dropdown, .command-picker.col.s8.active .dropdown {
+    opacity: 1;
+    transform: translateX(25px); }
 
 .console {
   background: #101010;
@@ -128,19 +147,32 @@
 
 .console pre {
   white-space: pre-wrap;
-  /* Since CSS 2.1 */ }
+  /* Since CSS 2.1 */
+  overflow-wrap: break-word; }
 
 .powershell-runner {
-  padding: 10px;
-  color: #fff; }
+  padding: 20px;
+  color: #4c4c4c;
+  background: rgba(0, 0, 0, 0.85);
+  color: #fff;
+  overflow: hidden; }
   .powershell-runner h2 {
-    font-weight: 200;
-    font-size: 1.3rem;
-    margin: 5px 0; }
+    font-weight: 300;
+    font-size: 1.2rem;
+    margin: 5px 0 10px;
+    position: fixed; }
   .powershell-runner .console {
     text-align: left;
-    border-radius: 3px;
-    border: 1px solid #fff8c8; }
+    border: 1px solid rgba(255, 248, 200, 0.26);
+    background: rgba(16, 16, 16, 0);
+    margin-top: 35px;
+    height: 300px;
+    overflow: auto; }
+  .powershell-runner .close-btn {
+    position: fixed;
+    color: #fff;
+    top: 15px;
+    right: -5px; }
 
 .waves-effect.waves-light-teal .waves-ripple {
   background-color: rgba(178, 223, 219, 0.65); }
