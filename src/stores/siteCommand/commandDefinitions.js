@@ -66,9 +66,12 @@ var definitions = {
 			type: "url"
 		},
 		invoke(site) {
-			if (this.params.name && this.params.url) {
-				return site.inject(this.params.url, this.params.name);
+			if (this.params.type === "url" && this.params.name && this.params.url) {
+				return site.inject(this.params.url, this.params.name, this.params.scope);
 			} 
+			if (this.params.type === "file" && this.params.name && this.params.filepath) {
+				return site.inject(this.params.filepath, this.params.name, this.params.scope, this.params.folder);
+			}
 			return site;
 		}
 	}

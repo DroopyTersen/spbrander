@@ -18,11 +18,11 @@ module.exports = class BaseInput extends React.Component {
     }
     componentWillUpdate(nextProps, nextState) {
         // Hack to get cursor to not jump to end of input
-        setTimeout(() => {
-            if (this.cursor && this.cursor.element.setSelectionRange) {
-                this.cursor.element.setSelectionRange(this.cursor.start, this.cursor.end);
-            }
-        },1)  
+        // setTimeout(() => {
+        //     if (this.cursor && this.cursor.element.setSelectionRange) {
+        //         this.cursor.element.setSelectionRange(this.cursor.start, this.cursor.end);
+        //     }
+        // },1)  
     }
     bindChange() {
         return this.handleChange.bind(this, this.props.id);

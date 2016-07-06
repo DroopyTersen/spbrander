@@ -11,13 +11,14 @@ class FileInput extends BaseInput {
 		if (Array.isArray(filepath) && filepath.length) {
 			filepath = filepath[0];
 		}
-		var payload = {
-			id: this.props.command.id,
-			key: this.props.id,
-			value: filepath
-		};
-		console.log(payload);
-		actions.commands.update(payload);
+		if (filepath) {
+			var payload = {
+				id: this.props.command.id,
+				key: this.props.id,
+				value: filepath
+			};
+			actions.commands.update(payload);			
+		}
 	}
 	componentWillMount() {
 		this.handleFileSelected = this.handleFileSelected.bind(this);

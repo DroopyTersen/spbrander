@@ -41,6 +41,12 @@ module.exports = React.createClass({
         return (
           <div>
             <inputs.TextInput id='name' label='Name' command={this.props.command} />
+            <inputs.SelectInput 
+                id='scope'  
+                command={this.props.command}
+                label="Scope"
+                options={[{ value:"Web", text:"Web" }, { value: "Site", text: "Site Collection" }]} 
+            />
             <div>
                 <span className='col s3'>
                     <input 
@@ -64,7 +70,7 @@ module.exports = React.createClass({
             </div>
             {subForm}
 
-          </div>
+          </div>    
         )
     }
 });

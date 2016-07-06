@@ -21,16 +21,16 @@ var openFileDialog = function(opts = {}) {
 var closePowershellRunner = function() {
 	if (psRunner) {
 		psRunner.close();
-		psRunner = null;
+		//psRunner = null;
 	}
 };
 
 var openPowershellRunner = function(scriptBlock) {
-	psRunner = new BrowserWindow({ width:700, height:400, autoHideMenuBar: true, transparent: false, frame:false })
-	psRunner.on("closed", closePowershellRunner);
+	psRunner = new BrowserWindow({ width:700, height:375, autoHideMenuBar: true, transparent: false, frame:false })
+	psRunner.on("closed", () => psRunner = null);
 	psRunner.loadURL(`file://${__dirname}/src/screens/powershellrunner/index.html`)
 	psRunner.show();
-	psRunner.webContents.openDevTools()
+	//psRunner.webContents.openDevTools()
 
 	// HACK
 	setTimeout(() => {
@@ -47,7 +47,7 @@ ipc.on('open-file-dialog', (event, payload) => {
 })
 
 ipc.on('done-powershell', e => {
-
+	closePowershellRunner();
 });
 
 ipc.on('run-powershell', (e, scriptBlock) => openPowershellRunner(scriptBlock));

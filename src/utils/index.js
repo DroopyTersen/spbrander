@@ -1,4 +1,5 @@
 var PowerShell = require('node-powershell');
+console.log(PowerShell);
 const shell = require('electron').shell
 
 exports.consoleOverride = function(component) {
